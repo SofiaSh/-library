@@ -6,7 +6,7 @@ from author.models import Author
 
 class Book(models.Model):
     name = models.CharField(max_length=120)
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
+    author = models.ManyToManyField(Author)
     description = models.TextField(max_length=2000)
     genre = models.ManyToManyField(Genre)
     user = models.ManyToManyField(User)
