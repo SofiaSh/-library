@@ -3,7 +3,7 @@
 ## Introduction
 Web application for accounting and e-books of users.
 
-##Installation
+## Installation
 
 1. Cd to the directory where requirements.txt is located
 2. Activate your virtualenv
