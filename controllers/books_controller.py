@@ -8,7 +8,7 @@ class BooksController:
         self.books_dao.add_book(json_object)
 
     def update_book(self, old_name, new_name):
-        self.books_dao.update_book(old_name, new_name)
+        return self.books_dao.update_book(old_name, new_name)
 
     def remove_book(self, name):
         self.books_dao.remove_book(name)
