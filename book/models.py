@@ -18,3 +18,4 @@ class Book(models.Model):
         db_table = 'Books'
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
+
