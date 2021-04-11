@@ -1,4 +1,5 @@
 from book.models import Book
+from django.http import HttpResponseNotFound, HttpResponse
 
 
 class BookDAO:
@@ -14,10 +15,17 @@ class BookDAO:
         book.save()
 
     def update_book(self, old_name, new_name):
-        book = Book.objects.get(name=old_name)
-        book.name = new_name
-        book.save()
+        try:
+            book = Book.objects.get(name=old_name)
+            book.name = new_name
+            book.save()
+        except Book.DoesNotExist:
+            return HttpResponseNotFound("<h2>Book not found</h2>")
 
     def remove_book(self, name):
-        book = Book.objects.get(name=name)
-        book.delete()
+        try:
+            book = Book.objects.get(name=name)
+            book.delete()
+            return HttpResponse("<h2>Book deleted</h2>")
+        except Book.DoesNotExist:
+            return HttpResponseNotFound("<h2>Book not found</h2>")
